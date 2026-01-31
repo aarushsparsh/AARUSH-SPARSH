@@ -19,6 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(nextSlide, slideInterval);
     }
 
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.add('active');
+        });
+    }
+
+    if (mobileMenuClose && navMenu) {
+        mobileMenuClose.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    }
+
     // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.reveal');
 

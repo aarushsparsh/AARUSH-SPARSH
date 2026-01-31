@@ -24,36 +24,30 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <!-- Using text for better SEO/Style integration, or image if preferred by user. 
-                 Given "Add the logo", I will try to use the image which I copied as logo_ref.jpg.
-                 However, since it has a background, I might simpler stick to text or use a container.
-                 Let's use an img tag with a class. -->
-            <img src="logo_new.png" alt="Aarush Sparsh Logo"
-                style="height: 120px; vertical-align: middle; mix-blend-mode: color-dodge;">
+            <a href="#">
+                <img src="logo_new.png" alt="Aarush Sparsh Logo">
+            </a>
         </div>
-        <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#about">About us</a>
-            <a href="#contact">Contact Us</a>
-        </nav>
+        <!-- Navigation bar removed as requested -->
         <div class="auth-buttons" style="display: flex; gap: 10px;">
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aarushsparsh7@gmail.com" target="_blank"
-                class="btn btn-login"
-                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
-                <i class="fas fa-envelope"></i> Mail
+                class="btn btn-login" title="Send Email"
+                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-envelope"></i>
             </a>
-            <a href="tel:+918428839960" class="btn btn-login"
-                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
-                <i class="fas fa-phone-alt"></i> Call
+            <a href="tel:+918428839960" class="btn btn-login" title="Call Us"
+                style="background-color: #34b7f1; color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-phone-alt"></i>
             </a>
             <a href="https://www.instagram.com/aarush_sparsh?igsh=cG16emtpMm5yYW9j" target="_blank"
-                class="btn btn-login"
-                style="background: var(--gradient-primary); color: var(--text-white); font-weight: bold; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
-                <i class="fab fa-instagram"></i> Instagram
+                class="btn btn-login" title="Instagram"
+                style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                <i class="fab fa-instagram"></i>
             </a>
             <a href="https://maps.app.goo.gl/MULHZhL9qGVMYNzg7" target="_blank" class="btn btn-login"
-                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
-                <i class="fas fa-map-marker-alt"></i> SHOP LOCATION
+                title="Shop Location"
+                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-map-marker-alt"></i>
             </a>
         </div>
     </header>
@@ -69,8 +63,8 @@
         </div>
         <div class="hero-overlay" style="display: none;"></div>
         <div class="hero-content">
-            <h1>AARUSH SPARSH <span
-                    style="display:block; font-size: 24px; color: var(--secondary-blue); margin-top: 10px;">Shamiyana
+            <h1 data-text="AARUSH SPARSH">AARUSH SPARSH <span
+                    style="display:block; font-size: 24px; color: #22d3ee; margin-top: 10px;">Shamiyana
                     Tent & Event Management</span></h1>
             <p>Your one-stop solution for Wedding Events, Birthday Parties, and Decorations.</p>
             <div class="hero-buttons">
@@ -94,12 +88,12 @@
         style="padding: 60px 20px; text-align: center; background: url('logo_new.png') center/contain no-repeat fixed transparent; background-blend-mode: screen;">
         <h2 class="section-title">About Us</h2>
         <div class="glass-card"
-            style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-dark); padding: 40px;">
-            <p style="font-size: 18px; margin-bottom: 20px;">Welcome to <strong>Aarush Sparsh</strong>, managed by
-                <strong>Arulraj</strong>.
-            </p>
-            <p>We specialize in making your special occasions memorable. From grand weddings to intimate birthday
-                celebrations, we provide complete event management solutions including:</p>
+            style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: var(--text-silver); padding: 40px;">
+            <p>Welcome to <strong>Aarush Sparsh</strong>, your premier event management partner in Chennai. With years
+                of experience and a passion for perfection, we transform your visions into unforgettable realities.</p>
+            <p style="margin-top: 20px; color: var(--accent-color); font-weight: 500;">Whether it's a grand wedding
+                celebration, a vibrant birthday party, or professional decorations, we ensure every detail is handled
+                with care and creativity.</p>
             <ul style="list-style: none; padding: 20px; font-weight: bold; color: var(--primary-blue);">
                 <li style="margin: 10px 0;">❖ Wedding Events</li>
                 <li style="margin: 10px 0;">❖ Birthday Events</li>

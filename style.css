@@ -1,5 +1,5 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-blue: #38bdf8;
@@ -12,8 +12,10 @@
     /* Near Black */
     --accent-color: #22d3ee;
     /* Vibrant Cyan */
-    --text-white: #f8fafc;
-    --text-dark: #f1f5f9;
+    --text-white: #e0f2fe;
+    /* Attractive Ice Blue instead of pure white */
+    --text-silver: #cbd5e1;
+    /* Soft Slate/Silver */
     --text-gray: #94a3b8;
     --bg-card: rgba(30, 41, 59, 0.7);
     --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
@@ -28,10 +30,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-darker);
+    color: var(--text-white);
     line-height: 1.6;
-    color: var(--text-dark);
-    background: var(--bg-darker);
-    min-height: 100vh;
     overflow-x: hidden;
 }
 
@@ -66,28 +67,43 @@ ul {
 .top-bar {
     background-color: var(--dark-blue);
     padding: 10px 50px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #f1ecec;
     font-size: 13px;
     color: var(--text-white);
 }
 
-/* Hero Title 3D & Animation */
+/* Hero Title Typing Animation & Color */
 .hero-content h1 {
-    font-size: 60px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 72px;
     font-weight: 800;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    position: relative;
+    background: linear-gradient(to right,
+            #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
+    background-size: 400% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow:
-        0 1px 0 #3b82f6,
-        0 2px 0 #2563eb,
-        0 3px 0 #1d4ed8,
-        0 4px 0 #1e40af,
-        0 5px 0 #1e3a8a,
-        0 8px 15px rgba(0, 0, 0, 0.6);
-    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+    display: inline-block;
+    animation:
+        rgbCycle 6s linear infinite,
+        logoFloat 6s ease-in-out infinite;
+}
+
+@keyframes rgbCycle {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .btn:hover {
@@ -168,14 +184,52 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(224, 242, 254, 0.1);
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.logo a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo img {
+    height: clamp(120px, 20vh, 220px);
+    /* Fluid scaling between phone and desktop */
+    width: auto;
+    vertical-align: middle;
+    mix-blend-mode: color-dodge;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+    animation: logoPulse 4s ease-in-out infinite, logoFloat 6s ease-in-out infinite;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo a:hover img {
+    filter: drop-shadow(0 0 25px rgba(34, 211, 238, 0.8));
+    transform: scale(1.05);
+}
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 25px rgba(34, 211, 238, 0.6));
+    }
+}
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .logo span {
@@ -188,16 +242,14 @@ header {
     margin-right: 20px;
 }
 
-.nav-links a {
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
     color: var(--text-white);
-    margin: 0 15px;
-    font-weight: 500;
+    margin-right: 20px;
 }
 
-.nav-links a:hover {
-    color: var(--primary-blue);
-    transform: translateY(-2px);
-}
+/* Navigation and Menu styles removed as requested */
 
 .auth-buttons .btn {
     border-radius: 8px;
@@ -270,11 +322,7 @@ header {
     /* Added shadow for readability */
 }
 
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: var(--text-white);
-}
+
 
 .hero-content p {
     font-size: 18px;
@@ -282,6 +330,7 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--text-silver);
 }
 
 .hero-buttons .btn {
@@ -327,6 +376,7 @@ header {
 }
 
 .section-title {
+    font-family: 'Outfit', sans-serif;
     font-size: 32px;
     margin-bottom: 50px;
     position: relative;
@@ -350,6 +400,7 @@ header {
 }
 
 .step-card h3 {
+    font-family: 'Outfit', sans-serif;
     margin-bottom: 15px;
     font-size: 20px;
 }
@@ -383,6 +434,7 @@ header {
 }
 
 .features-content h2 {
+    font-family: 'Outfit', sans-serif;
     color: var(--text-white);
     margin-bottom: 40px;
 }
@@ -414,7 +466,7 @@ header {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(224, 242, 254, 0.1);
 }
 
 .form-group {
@@ -426,9 +478,18 @@ header {
 .form-control {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.3);
     border-radius: 5px;
     font-size: 14px;
+    color: var(--text-white);
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
 .btn-submit {
@@ -479,7 +540,7 @@ footer {
     padding: 40px 20px;
     text-align: center;
     font-size: 13px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(224, 242, 254, 0.1);
 }
 
 footer a {
@@ -494,16 +555,75 @@ footer a:hover {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     header {
-        flex-direction: column;
-        padding: 20px;
+        padding: 10px 20px;
+    }
+
+    .auth-buttons {
+        gap: 5px !important;
+    }
+
+    .auth-buttons .btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+
+    /* Logo height handled by fluid clamp() in main styles */
+
+    .menu-toggle {
+        display: block;
+        order: 1;
+    }
+
+    .auth-buttons {
+        order: 2;
+        margin-left: 0;
     }
 
     .nav-links {
-        margin-top: 15px;
-        display: none;
-        /* Simple toggle logic would be needed for full menu, keeping simple for now */
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--bg-darker);
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .nav-links a {
+        margin: 20px 0;
+        font-size: 18px;
+        width: 100%;
+        text-align: center;
     }
 
     .hero-content h1 {
@@ -513,5 +633,40 @@ footer a:hover {
     .form-group {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .auth-buttons .btn {
+        padding: 8px 10px;
+    }
+
+    .auth-buttons .btn span {
+        display: none;
+        /* Hide text on very small screens if needed, but let's see */
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-buttons {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        padding: 10px 0;
+        gap: 10px !important;
+    }
+
+    .auth-buttons .btn {
+        margin-left: 0;
+        text-align: center;
+        justify-content: center;
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
