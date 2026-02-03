@@ -1,26 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const slides = document.querySelectorAll('.hero-slide');
-    let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
-
-    function nextSlide() {
-        // Remove active class from current slide
-        slides[currentSlide].classList.remove('active');
-
-        // Calculate next slide index
-        currentSlide = (currentSlide + 1) % slides.length;
-
-        // Add active class to next slide
-        slides[currentSlide].classList.add('active');
-    }
-
-    // Start the slideshow if there are slides
-    if (slides.length > 0) {
-        setInterval(nextSlide, slideInterval);
-    }
-
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle (Simplified as requested by previous cleanups)
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
     const navMenu = document.getElementById('nav-menu');

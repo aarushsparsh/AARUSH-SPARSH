@@ -199,6 +199,7 @@ header {
     transform: scale(1.05);
 }
 
+/* Logo animations kept for potential use or removed if fully cleaning */
 @keyframes logoPulse {
 
     0%,
@@ -266,120 +267,119 @@ header {
     border: none;
 }
 
-/* Hero Section */
-.hero {
+/* Hero Section v2 */
+.hero-v2 {
     height: 100vh;
+    width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--text-white);
-    padding: 0 20px;
     overflow: hidden;
+    background-color: var(--bg-darker);
 }
 
-.hero-slider {
+.hero-bg-logo {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.hero-slider::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
-    z-index: 2;
-    pointer-events: none;
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    transform: scale(1.1);
-    /* Pre-scale for zoom effect */
+    opacity: 0.15;
+    z-index: 1;
+    animation: slowRotate 60s linear infinite;
 }
 
-.hero-slide.active {
-    opacity: 1;
-    animation: kenBurns 8s linear infinite alternate;
-}
-
-@keyframes kenBurns {
+@keyframes slowRotate {
     from {
-        transform: scale(1);
+        transform: translate(-50%, -50%) rotate(0deg);
     }
 
     to {
-        transform: scale(1.15);
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
-.hero-content {
-    position: relative;
-    z-index: 3;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    /* Added shadow for readability */
+.hero-overlay-refined {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.3) 0%, rgba(2, 6, 23, 0.85) 100%);
+    z-index: 2;
 }
 
+.hero-content-v2 {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
 
+.hero-glass-box {
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1.2s ease-out;
+    max-width: 800px;
+}
 
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
+.hero-glass-box h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(40px, 8vw, 84px);
+    font-weight: 800;
+    margin-bottom: 5px;
+    background: linear-gradient(to right,
+            #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    animation: rgbCycle 5s linear infinite;
+}
+
+@keyframes rgbCycle {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-tagline {
+    margin-bottom: 25px;
+}
+
+.tag-line {
+    font-size: clamp(14px, 3vw, 24px);
+    color: var(--accent-color);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: block;
+}
+
+.hero-glass-box p {
+    font-size: clamp(14px, 2vw, 18px);
+    color: var(--text-silver);
+    margin-bottom: 40px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    color: var(--text-silver);
-}
-
-.hero-buttons .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.btn-primary {
-    background: var(--gradient-primary);
-    color: var(--text-white);
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    border: none;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-white);
-    border: 2px solid var(--text-white);
-}
-
-.btn-secondary:hover {
-    background-color: var(--text-white);
-    color: var(--primary-blue);
+    opacity: 0.9;
 }
 
 /* How It Works */
