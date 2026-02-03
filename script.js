@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const slides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
     const slideInterval = 5000; // 5 seconds

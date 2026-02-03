@@ -73,30 +73,28 @@ ul {
 }
 
 /* Hero Title Typing Animation & Color */
+/* Hero Title RGB Animation */
 .hero-content h1 {
     font-family: 'Outfit', sans-serif;
     font-size: 72px;
     font-weight: 800;
     margin-bottom: 20px;
     position: relative;
-    color: #ffff00;
-    /* Bright Yellow */
-    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 0, 0.3);
+    background: linear-gradient(to right,
+            #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff, #ff0000);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    /* Removed for better gradient clarity */
     display: inline-block;
-    animation: logoFloat 6s ease-in-out infinite;
+    animation: rgbCycle 5s linear infinite, logoFloat 6s ease-in-out infinite;
 }
 
 @keyframes rgbCycle {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
+    to {
+        background-position: 200% center;
     }
 }
 
@@ -182,18 +180,17 @@ header {
 }
 
 .logo a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    position: relative;
     transition: transform 0.3s ease;
 }
 
 .logo img {
-    height: clamp(80px, 15vh, 180px);
-    /* Fluid scaling between phone and desktop */
+    height: 100px;
     width: auto;
     vertical-align: middle;
-    mix-blend-mode: color-dodge;
-    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.3));
-    animation: logoPulse 4s ease-in-out infinite, logoFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
     transition: filter 0.3s ease, transform 0.3s ease;
 }
 
@@ -291,6 +288,18 @@ header {
     z-index: 1;
 }
 
+.hero-slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
 .hero-slide {
     position: absolute;
     top: 0;
@@ -301,13 +310,24 @@ header {
     background-position: center;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    transform: scale(1.1);
+    /* Pre-scale for zoom effect */
 }
 
 .hero-slide.active {
     opacity: 1;
+    animation: kenBurns 8s linear infinite alternate;
 }
 
-/* Overlay removed/hidden */
+@keyframes kenBurns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
 
 .hero-content {
     position: relative;
@@ -653,53 +673,250 @@ footer a:hover {
 
 @media (max-width: 480px) {
     .auth-buttons {
-        display: grid !important;
-        grid-template-columns: repeat(2, 50px);
-        justify-content: center;
-        width: 100%;
-        padding: 10px 0;
-        gap: 20px 40px !important;
-        /* Vertical gap 20px, Horizontal gap 40px */
+        display: flex !important;
+        justify-content: flex-end;
+        width: auto;
+        padding: 0;
+        gap: 10px !important;
     }
 
     .auth-buttons .btn {
-        width: 50px !important;
-        height: 50px !important;
+        width: 45px !important;
+        height: 45px !important;
         margin-left: 0;
         text-align: center;
         justify-content: center;
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
 
     header {
-        flex-direction: column;
-        padding: 15px 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+        align-items: center;
     }
 
     .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 15px;
+        width: auto;
+        text-align: left;
+        margin-bottom: 0;
         margin-right: 0;
     }
 
     .logo img {
-        height: 80px;
+        height: 120px;
+        /* Big size for mobile as requested */
     }
 
     .hero-content h1 {
         font-size: 36px;
-        color: #ffff00 !important;
     }
 
     .hero-content h1 span {
         font-size: 20px !important;
-        color: #22d3ee !important;
         margin-top: 5px;
+        color: #22d3ee;
+        /* Removed !important to allow flexibility if needed, though this span doesn't have the RGB effect */
     }
 
     .hero-buttons .btn {
         padding: 12px 25px;
         font-size: 13px;
+    }
+}
+
+/* Floating Contact Icons */
+.floating-contact {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+}
+
+.floating-btn:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.call-btn {
+    background-color: #25d366;
+    /* Vibrant green */
+    animation: pulse-green 2s infinite;
+}
+
+.insta-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.mail-btn {
+    background-color: var(--secondary-blue);
+}
+
+@keyframes pulse-green {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-contact {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+    }
+
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* Modern Services Showcase */
+.services-showcase {
+    padding: 100px 20px;
+    background-color: var(--bg-darker);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    color: var(--text-gray);
+    font-size: 16px;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    /* Slightly smoother rounded corners */
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensure card occupies full height in grid */
+}
+
+.service-card:hover {
+    transform: translateY(-12px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.service-image-wrapper {
+    position: relative;
+    height: 250px;
+    /* Enforced fixed height */
+    width: 100%;
+    overflow: hidden;
+}
+
+.service-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Professional cropping */
+    object-position: center;
+    /* Centered focus */
+    transition: transform 0.6s ease;
+}
+
+.category-badges {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.badge {
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(8px);
+    color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.service-content {
+    padding: 25px;
+    flex-grow: 1;
+    /* Pushes content to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.service-content h3 {
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.service-content p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive adjustments for services */
+@media (max-width: 768px) {
+    .services-showcase {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
     }
 }

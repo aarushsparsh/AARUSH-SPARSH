@@ -11,6 +11,7 @@
 
 <body>
 
+
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="top-bar-content">
@@ -25,25 +26,11 @@
     <header>
         <div class="logo">
             <a href="#">
-                <img src="logo_new.png" alt="Aarush Sparsh Logo">
+                <img src="logo_new.png" alt="Aarush Sparsh Logo" id="static-logo">
             </a>
         </div>
         <!-- Navigation bar removed as requested -->
         <div class="auth-buttons" style="display: flex; gap: 10px;">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aarushsparsh7@gmail.com" target="_blank"
-                class="btn btn-login" title="Send Email"
-                style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="tel:+918428839960" class="btn btn-login" title="Call Us"
-                style="background-color: #34b7f1; color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-            <a href="https://www.instagram.com/aarush_sparsh?igsh=cG16emtpMm5yYW9j" target="_blank"
-                class="btn btn-login" title="Instagram"
-                style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                <i class="fab fa-instagram"></i>
-            </a>
             <a href="https://maps.app.goo.gl/MULHZhL9qGVMYNzg7" target="_blank" class="btn btn-login"
                 title="Shop Location"
                 style="background-color: var(--secondary-blue); color: var(--text-white); font-weight: bold; border: none; padding: 10px; border-radius: 50%; text-decoration: none; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
@@ -108,20 +95,89 @@
 
     <!-- How it Works removed as requested -->
 
-    <!-- Why Choose Us -->
-    <section class="why-choose-us reveal">
-        <div class="features-image"></div>
-        <div class="features-content">
-            <h2>Our Events</h2>
-            <ul class="feature-list">
-                <li>Wedding Events</li>
-                <li>Birthday Events</li>
-                <li>Stage & Balloon Decorations</li>
-                <li>Sounds and Lights</li>
-                <li>Shamiyana Tent, Chairs & Vessels Rental</li>
-                <li>Seervarisai Plates for rentals, Sales, Decorations</li>
-                <li>Return Gifts and more...</li>
-            </ul>
+    <!-- Services Section -->
+    <section id="services" class="services-showcase reveal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Professional event management solutions tailored to your unique vision.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Wedding Events -->
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="assets/services/service_wedding.jpg" alt="Wedding Events">
+                        <div class="category-badges">
+                            <span class="badge">Premium</span>
+                            <span class="badge">Wedding</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Wedding Events</h3>
+                        <p>Exquisite stage decorations and seamless management for your big day.</p>
+                    </div>
+                </div>
+
+                <!-- Valagapu Event -->
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="assets/services/service_valagapu.jpg" alt="Valagapu Event">
+                        <div class="category-badges">
+                            <span class="badge">Traditional</span>
+                            <span class="badge">Celebration</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Valagapu Event</h3>
+                        <p>Traditional and artistic setups for beautiful pregnancy celebrations.</p>
+                    </div>
+                </div>
+
+                <!-- Birthday Events -->
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="assets/services/service_traditional.jpg" alt="Birthday Events">
+                        <div class="category-badges">
+                            <span class="badge">Vibrant</span>
+                            <span class="badge">Kids</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Birthday Events</h3>
+                        <p>Creative themes and professional decorations to make every birthday special.</p>
+                    </div>
+                </div>
+
+                <!-- Decorations & Lights -->
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="assets/services/service_decor.jpg" alt="Stage Decorations">
+                        <div class="category-badges">
+                            <span class="badge">Modern</span>
+                            <span class="badge">Design</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Stage & Balloon Decor</h3>
+                        <p>Artistic balloon arrangements and cinematic lighting for all occasions.</p>
+                    </div>
+                </div>
+
+                <!-- Rentals -->
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="assets/services/service_seemantham.jpg" alt="Event Rentals">
+                        <div class="category-badges">
+                            <span class="badge">Logistics</span>
+                            <span class="badge">Rental</span>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Rentals & Logistics</h3>
+                        <p>High-quality Shamiyana tents, premium seating, and vessel rentals.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -174,6 +230,21 @@
             Copyright &copy; 2026 Aarush Sparsh. All Rights Reserved.
         </div>
     </footer>
+
+    <!-- Floating Contact Icons -->
+    <div class="floating-contact">
+        <a href="tel:+918428839960" class="floating-btn call-btn" title="Call Us">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+        <a href="https://www.instagram.com/aarush_sparsh?igsh=cG16emtpMm5yYW9j" target="_blank"
+            class="floating-btn insta-btn" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=aarushsparsh7@gmail.com" target="_blank"
+            class="floating-btn mail-btn" title="Send Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>
