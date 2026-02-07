@@ -98,9 +98,53 @@ ul {
     }
 }
 
-.btn:hover {
-    box-shadow: 0 0 20px var(--primary-blue);
-    transform: translateY(-2px);
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 34px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: var(--text-white);
+    background: transparent;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5), 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-white);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 @keyframes float {
@@ -252,8 +296,8 @@ header {
 }
 
 .auth-buttons .btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
 }
 
 .btn-login {
@@ -507,18 +551,25 @@ header {
 }
 
 .btn-submit {
-    background-color: var(--primary-blue);
+    background: var(--gradient-primary);
     color: var(--text-white);
-    padding: 12px 40px;
+    padding: 16px 40px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
     cursor: pointer;
     width: 100%;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.2);
 }
 
 .btn-submit:hover {
-    background-color: var(--dark-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4);
+    filter: brightness(1.1);
 }
 
 .social-login {
@@ -681,12 +732,12 @@ footer a:hover {
     }
 
     .auth-buttons .btn {
-        width: 45px !important;
-        height: 45px !important;
+        width: 50px !important;
+        height: 50px !important;
         margin-left: 0;
         text-align: center;
         justify-content: center;
-        font-size: 16px !important;
+        font-size: 18px !important;
     }
 
     header {
@@ -720,8 +771,17 @@ footer a:hover {
     }
 
     .hero-buttons .btn {
-        padding: 12px 25px;
-        font-size: 13px;
+        padding: 16px 32px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 }
 
@@ -791,9 +851,9 @@ footer a:hover {
     }
 
     .floating-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+        width: 65px;
+        height: 65px;
+        font-size: 26px;
     }
 }
 
